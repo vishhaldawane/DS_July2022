@@ -248,7 +248,23 @@ HOW    	class A
 			     
 			     
 			     
+		
 			     
+		Passing object as a parameter to a method
+		
+		void fun(Person p)
+		{
+		
+		}
+			    and
+			    
+		Returning object as a return value from a method
+		
+			     
+		Flight foo() {
+		
+				return flightObj;
+		}
 			     
 			     
 			     
@@ -262,6 +278,9 @@ HOW    	class A
 	
 	
 */
+
+
+
 
 
 
