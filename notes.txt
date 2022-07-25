@@ -1,0 +1,265 @@
+
+Abhishek Aikansh Kuldeep Amol  	Sarvesh 	Venkat 	Aditya	Mayank		
+Shweta	Rohan 	Roshan		Abhinash	Urvesh	Vedangi		
+	Surja	Shreeyash	Rishabh		Mohan	GuruMallesh	
+Dinesh Sinchit	Satish		Pawan		Rutika	Shital		
+								
+				Vishhal
+
+
+
+			James Gosling
+
+		Java "Programming" Language
+					|
+					|
+			--------------------------------
+			|	|	|	|
+			listen speak   read  write 
+			<--concepts->  <--programs->
+
+
+	Day 1
+
+	1. Introduction to Java
+
+	Green Project <-C++ 
+	|
+	many devices
+	
+
+			windows		<-----------unix------------------------>   <---not unix--->
+	Vendor		Intel		Sun		IBM	HP	Apple		Any
+			|		|		|	|	|		|
+	CPU		X86		SPARC		BB	Hps	PowerPc		Any
+			|		|		|	|	|		|
+	OS		Windows		Solaris		AIX	HpUX	Macintosh	Linux
+			|		|		|	|	|		|
+	Compiler	Turboc		cc		cc	cc	cc		gnu/cc
+			|		|		|	|	|		|
+	Source Code	First.cpp ----> First.cpp First.cpp	..	..		..
+			|		|		|		
+	Compile		First.obj	First.o		First.o ..	..		..
+			|		|		|
+	Linker		First.exe ----->First.out	First.out ..	..		..
+			|		|		|
+	launchit       run it		run it		runit
+
+
+
+
+			windows		<-----------unix------------------------>   <---not unix--->
+	Vendor		Intel		Sun		IBM	HP	Apple		Any
+			|		|		|	|	|		|
+1	CPU		X86		SPARC		BB	Hps	PowerPc		Any
+			|		|		|	|	|		|
+2	OS		Windows		Solaris		AIX	HpUX	Macintosh	Linux
+			|		|		|	|	|		|
+3			JVM		JVM		JVM	JVM	JVM		JVM
+			|CDPlayer	|CDPlayer	|CDP	|CDP	|CDP		|CDP
+	Source Code	First.java	|		|	|	|		|
+			|		|		|	|	|		|	
+	Compile		First.class	->		->	->	->		->
+			|CD		|		|
+	Interepreter	
+
+
+
+
+	2. Features of Java
+
+		1. Simple
+			- no pointer
+			- NO DMA
+			- legacy syntax
+
+		2. Object oriented
+
+		3. Compiled and interpreted
+		4. WORA - write once run anywhere
+		5. Secured - runs in a SandBox 
+		6. Multithreaded
+		7. Robust
+			ability to handle exceptions
+			ability to perform garbage collection
+
+			Abc a;
+
+			Abc *a = new Abc();
+			
+			delete a; <-- 
+		8. Dynamic 
+			Joker j = new Joker();
+
+		9. Distributed 
+
+
+	3. First program 
+			
+	vi First.java
+		|
+		your code
+
+	javac First.java
+		|
+		a class file is generated
+		But what is the name of the class file????
+		-> it is as per the class declared in the source code
+
+
+
+	Classes 			and			Objects
+	|							|
+	blue print of an Object				Instance of a Class
+
+	blue print of a House				actual House as per the blue print
+
+	logical/simple text file			physical/memory based entity
+
+
+	
+						int          x    =  100;
+	SavingsAccount.java		    SavingsAccount   y    =  new SavingsAccount();
+	--------------------				     y.withdraw(50000);
+	public class SavingsAccount			     y.deposit(789090);
+	{
+		void withdraw(float amtToWithdraw))
+		{
+
+		}
+		void deposit(float amtToDeposit)
+		{
+
+		}
+	}
+
+
+
+
+
+
+
+	Naming Convention in Java
+
+	1	GodIsNowHere - klass
+
+	2	setLookAndFeel() - method
+
+	3	rollNumber, baObj - variable 
+
+	4	PI, SPEED_OF_LIGHT - contants
+
+	5	pack1.pack2.pack3  - packages
+
+
+		printStatement()
+
+
+		changeMyAge() { }
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				Data Types
+				|
+		-------------------------------------
+		|				|
+		primary (primitive)		secondary ( object based)
+		|
+-----------------------------------
+|	  |	  |	    |
+integral floating character Boolean
+|	 |	    |		|
+byte  1  float  4  char 2   boolean 1	
+short 2  double 8		true/false
+int   4
+long  8
+
+
+	byte 1 byte = 8 bits
+
+
+
+		1 bit 	= 	0
+				1
+
+		2bits	=	0 0
+				0 1
+				1 0
+				1 1
+
+		3 bits	=	0 0 0 - 0
+				0 0 1 - 1
+				0 1 0 - 2
+				0 1 1 - 3
+				1 0 0 - 4
+				1 0 1 - 5
+				1 1 0 - 6
+				1 1 1 - 7
+
+		4 bits		16
+		5 bits		32
+		6		64
+		7		128
+		8		256
+
+		
+		<----------------256--------------->
+		-127 -126 -125 .....0 1 2 3 4 ...128								    |
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
