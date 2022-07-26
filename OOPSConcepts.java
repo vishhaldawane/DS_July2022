@@ -266,16 +266,110 @@ HOW    	class A
 				return flightObj;
 		}
 			     
+			    
+
+			     			Association
+			     				|
+			     ---------------------------------
+			     |		|			|		|
+			     isA	hasA		usesA	producesA
+			     |       |			|				|
+			Aggregation  |		Object as		Object as
+			      Composition   Method Args		method return type
 			     
+		class Machine
+		{
+			data1 + functions1
+		}
+	
+		class WashingMachine extends Machine <---- isA 
+		{
+			data2 + functions2
+			WashingTub washTub = new WashingTub(); //hasA
+		
+		
+			void wash() {
+			}
+			void rinse() {
+			}
+			void spin() {
+			}
+		}
+		
+		class WashingTub extends Tub <-- isA
+		{
+		
+		}
 			     
+		
 			     
-			     
+			     class Any
+			     {
+			     		data
+			     		+
+			     		fun1 fun2 fun3
+			     }
 	
 	
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	==============================================================
+			|		static		  |	final 		|	abstract
+	==============================================================
+			| shared across all   |	cannot be	| NA	
+	field	| the objects of the  | changed/	|
+			| class               | immutable	|
+	--------------------------------------------------------------
+			| is used to refer    |cannot be	| it is the partial
+	method	| the other static    |overridden	| contract of a 
+			| data/methods        |by the 		| class
+			| members             |child		|
+	--------------------------------------------------------------
+			| NA                  |cannot be	| it contains the
+	class	|                     |extended		| partial contract
+			|                     |				| [ optional ]
+	--------------------------------------------------------------
+	
+	
+	
+	
+	SKY
+	                   ^ ^
+	    ^             l| |l
+	    |			  c| |c
+		|l   		  o@ @ o
+		|c			---------
+		|o		@	|		|
+		|	--------|		| | | |
+		@	|		|		| @ @ @
+	--------|		|		|--------
+1	|		|		|		|		|
+@	|		|		|		|		|
+|-------------------------------------------
+0 kites	
+
+	
+	kiteCount					kiteColor	kiteOwner	kiteLength
+	|							green		rishabh 	20
+	0							red			kuldeep		30
+								blue		satish		40
+								
+								
+	
+	
+	
+	
+	
+	class's data			vs				object's data
+	|										|
+	kiteCount								color owner length
 	
 */
 
