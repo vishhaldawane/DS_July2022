@@ -78,16 +78,16 @@ public class Bank { //just a test program
  * 
  * 
  */
-class Singer
+class Singer1
 {
 	void sing() { }
 	void dance() { }
 	void act() { }
 	
-	Singer(int i) { }
-	Singer(float i) { }
-	Singer(String i) { }
-	Singer(int i, float j, String k) {
+	Singer1(int i) { }
+	Singer1(float i) { }
+	Singer1(String i) { }
+	Singer1(int i, float j, String k) {
 		
 	}
 }

@@ -76,7 +76,7 @@ class Cell
 
 
 
-class WashingMachine
+class WashingMachine1
 {
 	
 	void wash() { }

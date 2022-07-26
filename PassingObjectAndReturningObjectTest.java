@@ -1,16 +1,39 @@
 
+
 public class PassingObjectAndReturningObjectTest {
+
+
 	public static void main(String[] args) {
 		
-		Kite kiteObj1 = new Kite("Red",20,"Rishabh",true);
-		Kite kiteObj2 = new Kite("Green",30,"Satish",true);
-		Kite kiteObj3 = new Kite("Yellow",40,"Kuldeep",true);
+		Kite.showKiteCount();
 		
+		Kite kite1 = new Kite("Green",50,"Rishabh",true);
+		Kite kite2 = new Kite("Red",60,"Satish",true);
+		Kite kite3 = new Kite("Yellow",70,"Kuldeep",true);
 
-		kiteObj1.kiteFight(kiteObj2, kiteObj3);
+
+		Kite.showKiteCount();
+
+	
+		X x1 = new X();
+		X x2 = new X();
+
+		
 	}
 
 }
+
+class X
+{
+	A a = new A();
+	B b = new B();
+	C c = new C();
+}
+
+class A { }
+class B { }
+class C { }
+
 
 class Kite
 {
@@ -19,12 +42,21 @@ class Kite
 	String owner;
 	boolean flyingStatus;
 	
+	private static int kiteCount; //SHARED DATA - declare it here - default is zero/0
+	
+	public static void showKiteCount() {
+		System.out.println("Total kites in the sky : "+kiteCount);
+
+	}
+	
 	public Kite(String color, int length, String owner, boolean flyingStatus) {
 		super();
+		System.out.println("Kite constructed...");
 		this.color = color;
 		this.length = length;
 		this.owner = owner;
 		this.flyingStatus = flyingStatus;
+		kiteCount++; //increment is as per the new kite 
 	}
 
 	void printKite() {
