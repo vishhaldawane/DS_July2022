@@ -215,8 +215,48 @@ interface WicketKeeping
 	void keepWicket();
 }
 
+class Team
+{
+	
+}
+class CricketTeam extends Team
+{
+	Cricketer cricketer1 = new Cricketer();
+	Cricketer cricketer2 = new Cricketer();
+	Cricketer cricketer3 = new Cricketer();
+	Cricketer cricketer4 = new Cricketer();
+	Cricketer cricketer5 = new Cricketer();
+	Cricketer cricketer6 = new Cricketer();
+	Cricketer cricketer7 = new Cricketer();
+	Cricketer cricketer8 = new Cricketer();
+	Cricketer cricketer9 = new Cricketer();
+	Cricketer cricketer10 = new Cricketer();
+	Cricketer cricketer11 = new Cricketer();
+	
+	
+}
+
+class Stadium
+{
+	
+}
+
+class CricketStadium
+{
+	CricketTeam teamIndia = new CricketTeam();
+	CricketTeam teamAus =  new CricketTeam();
+	
+}
+
+class Bat
+{
+	
+}
+
 class Batsman extends Cricketer implements Batting
 {
+	Bat b = new Bat(); //hasA
+	
 	public void bat() {
 		System.out.println("The batsman is batting....");
 	}
