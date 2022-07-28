@@ -1,12 +1,17 @@
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import com.ds.exceptions.WashingMachineIsNotSwitchedOnException;
+import com.ds.exceptions.WashingMachineOverloadedException;
+import com.ds.exceptions.WashingMachineTubImbalancedException;
+
 public class WashingMachineTest {
 	public static void main(String[] args) {
 		
 		System.out.println("Begin main...");
 		
 		WashingMachine washMac = new WashingMachine();
+		
 		try {
 			washMac.switchOn();
 			washMac.selectProgram();
@@ -18,12 +23,9 @@ public class WashingMachineTest {
 	}
 }
 
-class WashingMachineIsNotSwitchedOnException extends Exception
-{
-	WashingMachineIsNotSwitchedOnException(String msg) {
-		super(msg);
-	}
-}
+
+
+
 class WashingMachine
 {
 	boolean current;
@@ -59,10 +61,16 @@ class WashingMachine
 		System.out.println("Program finished...");
 	}
 	
-	void wash()
+	void wash() 
 	{
 			for(int i=1;i<=20;i++) {
+				double num = Math.random()%100;
+				
 				System.out.println("Washing...."+i);
+				if(num > 0.98) {
+					WashingMachineOverloadedException washMacOverldEx = new WashingMachineOverloadedException("Washing machine is overloaded...than the capacity..");
+					throw washMacOverldEx;
+				}
 			}
 			rinse();
 	}
@@ -78,6 +86,12 @@ class WashingMachine
 	void spin() {
 		for(int i=1;i<=5;i++) {
 			System.out.println("\t\tspinning......."+i);
+			
+			double n = Math.random()%100;
+			if( n > 0.50 ) {
+				WashingMachineTubImbalancedException washTubImbalEx = new WashingMachineTubImbalancedException("Washing machine tub is imbalanced ....");
+				throw washTubImbalEx;
+			}
 		}
 	}
 	
