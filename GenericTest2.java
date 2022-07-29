@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class GenericTest2 {
 	public static void main(String[] args) {
@@ -31,6 +32,7 @@ public class GenericTest2 {
 		songVa.print();
 		songVa.swap();
 		songVa.print();
+		
 	}
 }
 
@@ -46,9 +48,10 @@ class AnyValues<T> // <-- container
 	void print() { // <-- algorithm
 		System.out.println("x "+x);
 		System.out.println("y "+y);
+
 	}
 	void swap() { // <-- algorithm
-		System.out.println("swapping....");
+		System.out.println("swapping...."+x.getClass().getName());
 		T temp = x;
 		x = y;
 		y = temp;
@@ -171,20 +174,32 @@ class Song
 
 /*
 
-							Iterable
-							|
+
+	Iterator
+
+							Iterable <-i
+							| Iterator iterator();
+							| 5
 						----------
 						|
-					Collection
-							|
+					Collection <-i
+							| 3
 					------------------
 					|			    |
-					List		   Set
+					List <-i	   Set
 					|DUPLICATE		|UNIQUE
+					|2
 			---------------		------------------
 			|			|		|			|
 		ArrayList	LinkedList TreeSet	HashSet
-									
+			|
+		Iterator iterator()
+		{
+			Iterator i = new ListIterator();
+			return i;
+		}		
+		ArrayList a = new ArrayList();
+		a.iterator();				
 	-----
 0	|	| --> emp
 	-----
