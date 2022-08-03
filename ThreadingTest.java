@@ -87,12 +87,20 @@ A/c Book
   			|					|
   			Thread				|isA
   			| start() {			|
-			|  ...				|		Frame
+			|  ...				|		JFrame
  			|  run();			|		|
  			| }					|		| isA
  			| run() { }			|		|
- 	--------------				MyMessageFrame
+ 	--------------				BikeFrame
  	|							| run() {
  	MyMessage					|  ...
+ 	Bike						|
+ 	Train						|
  								| }
+ 								
+ 		Thread
+ 		  - Thread(Runnable r)
+ 		  - Thread(String s)
+ 		  - Thread()
+ 		  
  */ 
