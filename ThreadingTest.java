@@ -1,4 +1,21 @@
-
+/*
+ * 
+ *  JVM --> invoking its own main method 
+ *  						 |
+ * 					------------
+ * 					|
+ * 			your main method <-- is a thread
+ * 			the main thread is invoking other 4 threads
+ * 			m1
+ * 			m2
+ * 			m3
+ * 			m4
+ * 
+ * 		this was all the above 5 threads are started
+ * 
+ * 
+ * 
+ */
 public class ThreadingTest {
 	public static void main(String[] args) {
 		//1. extend from java.lang.Thread class
@@ -12,11 +29,50 @@ public class ThreadingTest {
 		MyMessage m3 = new MyMessage("\t\tpang"); //3
 		MyMessage m4 = new MyMessage("\t\t\tpung"); //3
 
+		System.out.println("current thread? : "+Thread.currentThread().getName());
+		
+		System.out.println("m1 : "+m1.getName());
+		System.out.println("m2 : "+m2.getName());
+		System.out.println("m3 : "+m3.getName());
+		System.out.println("m4 : "+m4.getName());
+		
+		m1.setName("Ping Thread");
+		m2.setName("Pong Thread");
+		m3.setName("Pang Thread");
+		m4.setName("Pung Thread");
+		
+		System.out.println("m1 : "+m1.getName());
+		System.out.println("m2 : "+m2.getName());
+		System.out.println("m3 : "+m3.getName());
+		System.out.println("m4 : "+m4.getName());
+		
+		System.out.println("is thread1 alive : "+m1.isAlive());
+		System.out.println("is thread2 alive : "+m2.isAlive());
+		System.out.println("is thread3 alive : "+m3.isAlive());
+		System.out.println("is thread4 alive : "+m4.isAlive());
+		
 		m1.start();
 		m2.start();
 		m3.start();
 		m4.start();
 		
+		System.out.println("==> after start <== ");
+		System.out.println("==> is thread1 alive : "+m1.isAlive());
+		System.out.println("==> is thread2 alive : "+m2.isAlive());
+		System.out.println("==> is thread3 alive : "+m3.isAlive());
+		System.out.println("==> is thread4 alive : "+m4.isAlive());
+		
+		try {
+			m1.join(); //await for m1 to die
+			m2.join(); //await for m2 to die
+			m3.join(); // await for m3 to die
+			m4.join(); // await for m4 to die
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("======> END OF MAIN <====== ");
 		
 	}
 }
