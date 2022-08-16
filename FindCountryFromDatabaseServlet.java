@@ -72,6 +72,8 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 			System.out.println("statement created.."+st);
 			ResultSet rs = st.executeQuery("SELECT * FROM MYCOUNTRIES");
 			System.out.println("Query fired...got the result...");
+			
+			pw.println("<form action='countryJDBC'>");
 			pw.println("<TABLE border=5 cellspacing=10 cellpadding=10>");
 			
 			pw.println("<TH>Country</TH>");
@@ -86,7 +88,7 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 			pw.println("<TD><input type=text name='pmName'></TD>");
 			pw.println("<TD><input type=text name='population'></TD>");
 			pw.println("<TD><input type=text name='currency'></TD>");
-			pw.println("<TD><button style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:blue'>Add</button></TD>");
+			pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:blue' value='Add'></TD>");
 			pw.println("</TR>");
 			
 			
@@ -97,23 +99,26 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 				String foundCountryName = rs.getString(1);
 				String foundCapitalName = rs.getString(2);
 				String foundPrimeMinister = rs.getString(3);
+				
 				String foundPopulation = rs.getString(4);
 				String foundCurrency = rs.getString(5);
 				
 				
 				pw.println("<TD>"+foundCountryName+"</TD>");
 				pw.println("<TD>"+foundCapitalName+"</TD>");
-				pw.println("<TD>"+foundPrimeMinister+"</TD>");
+				pw.println("<TD><input type=text name='pmName' value='"+foundPrimeMinister+"'></TD>");
 				pw.println("<TD>"+foundPopulation+"</TD>");
 				pw.println("<TD>"+foundCurrency+"</TD>");
 				
-				pw.println("<TD><button style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:green'>Edit</button></TD>");
-				pw.println("<TD><button style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:red'>Delete</button></TD>");
+				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:green' value='Edit'>   </TD>");
+				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:red' value='Delete'> </TD>");
 
 				pw.println("</TR>");
 
 			}
 			pw.println("</TABLE>");
+			pw.println("</form>");
+
 			
 			
 			rs.close();
