@@ -74,7 +74,7 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 			System.out.println("Query fired...got the result...");
 			
 			pw.println("<form action='countryJDBC'>");
-			pw.println("<TABLE border=5 cellspacing=10 cellpadding=10>");
+			pw.println("<TABLE border=5 cellspacing=5 cellpadding=5>");
 			
 			pw.println("<TH>Country</TH>");
 			pw.println("<TH>Capital</TH>");
@@ -104,11 +104,11 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 				String foundCurrency = rs.getString(5);
 				
 				
-				pw.println("<TD>"+foundCountryName+"</TD>");
-				pw.println("<TD>"+foundCapitalName+"</TD>");
-				pw.println("<TD><input type=text name='pmName' value='"+foundPrimeMinister+"'></TD>");
-				pw.println("<TD>"+foundPopulation+"</TD>");
-				pw.println("<TD>"+foundCurrency+"</TD>");
+				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCountryName+"</TD>");
+				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCapitalName+"</TD>");
+				pw.println("<TD ><input style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink' type=text name='pmName' value='"+foundPrimeMinister+"'></TD>");
+				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundPopulation+"</TD>");
+				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCurrency+"</TD>");
 				
 				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:green' value='Edit'>   </TD>");
 				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:red' value='Delete'> </TD>");
