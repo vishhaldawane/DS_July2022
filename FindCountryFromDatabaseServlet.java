@@ -7,9 +7,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -73,52 +75,28 @@ public class FindCountryFromDatabaseServlet extends GenericServlet {
 			ResultSet rs = st.executeQuery("SELECT * FROM MYCOUNTRIES");
 			System.out.println("Query fired...got the result...");
 			
-			pw.println("<form action='countryJDBC'>");
-			pw.println("<TABLE border=5 cellspacing=5 cellpadding=5>");
+			//empty list
+			ArrayList<Country> countryList = new ArrayList();
 			
-			pw.println("<TH>Country</TH>");
-			pw.println("<TH>Capital</TH>");
-			pw.println("<TH>Prime Minister</TH>");
-			pw.println("<TH>Population</TH>");
-			pw.println("<TH>Currency</TH>");
-			
-			pw.println("<TR>");
-			pw.println("<TD><input type=text name='countryName'></TD>");
-			pw.println("<TD><input type=text name='capitalName'></TD>");
-			pw.println("<TD><input type=text name='pmName'></TD>");
-			pw.println("<TD><input type=text name='population'></TD>");
-			pw.println("<TD><input type=text name='currency'></TD>");
-			pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:blue' value='Add'></TD>");
-			pw.println("</TR>");
-			
-			
-
+			//fillup the empty list
 			while(rs.next()) {
-				pw.println("<TR>");
+				Country theCountry = new Country();
+				theCountry.setName(rs.getString(1));
+				theCountry.setCapital (rs.getString(2));
+				theCountry.setPrimeMinister ( rs.getString(3));
+				theCountry.setPopulation( rs.getString(4));
+				theCountry.setCurrency ( rs.getString(5));
 				
-				String foundCountryName = rs.getString(1);
-				String foundCapitalName = rs.getString(2);
-				String foundPrimeMinister = rs.getString(3);
-				
-				String foundPopulation = rs.getString(4);
-				String foundCurrency = rs.getString(5);
-				
-				
-				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCountryName+"</TD>");
-				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCapitalName+"</TD>");
-				pw.println("<TD ><input style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink' type=text name='pmName' value='"+foundPrimeMinister+"'></TD>");
-				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundPopulation+"</TD>");
-				pw.println("<TD style='font-size:20px; text-align:center; padding: 5px 10px; color:black; background-color:pink'>"+foundCurrency+"</TD>");
-				
-				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:green' value='Edit'>   </TD>");
-				pw.println("<TD><input type=submit name=submit style='font-size:16px; text-align:center; padding: 15px 32px; color:white; background-color:red' value='Delete'> </TD>");
-
-				pw.println("</TR>");
-
+				countryList.add(theCountry);
 			}
-			pw.println("</TABLE>");
-			pw.println("</form>");
-
+			//store this populated list on the request object
+			request.setAttribute("theCntLst", countryList);
+			
+			//now jump to the JSP page
+			RequestDispatcher rd = request.getRequestDispatcher("ShowAllCountries.jsp");
+			rd.forward(request, response);
+			
+			
 			
 			
 			rs.close();
